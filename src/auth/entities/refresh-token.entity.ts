@@ -1,0 +1,15 @@
+import { sign } from "jsonwebtoken";
+
+class RefreshToken {
+    constructor(init?: Partial<RefreshToken>){
+        Object.assign(this, init)
+    }
+    id: number;
+    userId: number;
+    
+    sign(): string{
+        return sign( {...this}, "secretforRefresh")
+    }
+}
+
+export default RefreshToken;
